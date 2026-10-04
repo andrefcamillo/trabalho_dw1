@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Andy Bold";
+    src: url("../fonte/ANDYB.TTF") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    color-scheme: dark;
+    --accent: #9b70d1;
+    --accent-soft: #d8c0f5;
+    --accent-deep: #452766;
+    --surface: rgba(19, 11, 31, 0.96);
+    --text: #f6efff;
+    --muted: #d8cce8;
+}
+
+* { box-sizing: border-box; }
+
+html { min-height: 100%; scroll-behavior: smooth; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 78px 5% 40px;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(rgba(18, 9, 32, 0.6), rgba(12, 6, 24, 0.9)), url("../imagens/astral_infection_HD.png") center / cover fixed no-repeat;
+}
+
+h1, h2 { font-family: "Andy Bold", sans-serif; }
+
+.barra-superior {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-height: 48px;
+    padding: 8px 5%;
+    color: #eee2ff;
+    font: 24px "Andy Bold", sans-serif;
+    background: rgba(24, 14, 39, 0.98);
+    border-bottom: 1px solid rgba(155, 112, 209, 0.72);
+}
+
+.barra-superior a { color: inherit; text-decoration: none; }
+
+.topo, .painel {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid rgba(155, 112, 209, 0.48);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.48);
+}
+
+.topo {
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 0;
+}
+
+.topo h1 { margin: 0; color: var(--accent-soft); font-size: 44px; }
+
+.topo p { margin: 8px 0 22px; color: var(--muted); }
+
+.menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+
+.menu a, .proxima a {
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: "Andy Bold", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    background: var(--accent-deep);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+}
+
+.menu a:hover, .menu a[aria-current="page"], .proxima a:hover { color: #170d24; background: var(--accent); }
+
+.painel { padding: 34px 42px; border-radius: 0 0 10px 10px; }
+
+.introducao { padding-bottom: 22px; border-bottom: 1px solid rgba(155, 112, 209, 0.35); }
+
+.introducao h2 { margin: 0 0 10px; color: var(--accent-soft); font-size: 30px; }
+
+.introducao p, .etapa p, .nota { color: var(--muted); line-height: 1.65; }
+
+.etapas { display: grid; gap: 0; }
+
+.etapa {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(155, 112, 209, 0.22);
+}
+
+.numero { color: var(--accent); font: 28px "Andy Bold", sans-serif; }
+
+.etapa h2 { margin: 0 0 7px; color: var(--text); font-size: 23px; }
+
+.etapa p { margin: 0; }
+
+.nota { margin: 24px 0; font-size: 14px; }
+
+.proxima { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 650px) {
+    body { padding: 82px 4% 24px; }
+    .barra-superior { padding-inline: 4%; font-size: 18px; }
+    .topo { padding: 24px 16px; }
+    .topo h1 { font-size: 36px; }
+    .painel { padding: 26px 20px; }
+    .etapa { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; }
+    .numero { font-size: 23px; }
+    .proxima { justify-content: stretch; }
+    .proxima a { flex: 1 1 100%; text-align: center; }
+}
